@@ -24,4 +24,9 @@ public class HelloController {
     public String echo(@RequestBody String message) {
         return "Echo: " + message;
     }
+
+    @GetMapping("/reverse")
+    public String reverse(@RequestParam("input") String input) {
+        return new StringBuilder(input).reverse().toString();
+    }
 }

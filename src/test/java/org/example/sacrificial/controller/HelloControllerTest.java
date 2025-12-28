@@ -32,4 +32,11 @@ class HelloControllerTest {
         ResponseEntity<String> response = restTemplate.postForEntity("/echo", message, String.class);
         assertThat(response.getBody()).isEqualTo("Echo: " + message);
     }
+
+    @Test
+    void shouldReverseString() {
+        String input = "reverse me";
+        ResponseEntity<String> response = restTemplate.getForEntity("/reverse?input=" + input, String.class);
+        assertThat(response.getBody()).isEqualTo("em esrever");
+    }
 }
