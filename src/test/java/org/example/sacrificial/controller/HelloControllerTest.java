@@ -25,4 +25,11 @@ class HelloControllerTest {
         ResponseEntity<String> response = restTemplate.getForEntity("/greet?name=Gemini", String.class);
         assertThat(response.getBody()).isEqualTo("Hello, Gemini!");
     }
+
+    @Test
+    void shouldEchoMessage() {
+        String message = "This is a test message";
+        ResponseEntity<String> response = restTemplate.postForEntity("/echo", message, String.class);
+        assertThat(response.getBody()).isEqualTo("Echo: " + message);
+    }
 }
