@@ -12,7 +12,8 @@ public class HelloController {
         return "Hello, World!";
     }
 
-    @GetMapping("/greet")
+
+    @GetMapping(value = "/greet", produces = "text/plain")
     public String greet(@RequestParam(value = "name", defaultValue = "World") String name) {
         return String.format("Hello, %s!", name);
     }
