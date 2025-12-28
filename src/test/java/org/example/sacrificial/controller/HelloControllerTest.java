@@ -19,4 +19,10 @@ class HelloControllerTest {
         ResponseEntity<String> response = restTemplate.getForEntity("/hello", String.class);
         assertThat(response.getBody()).isEqualTo("Hello, World!");
     }
+
+    @Test
+    void shouldReturnPersonalizedGreeting() {
+        ResponseEntity<String> response = restTemplate.getForEntity("/greet?name=Gemini", String.class);
+        assertThat(response.getBody()).isEqualTo("Hello, Gemini!");
+    }
 }
